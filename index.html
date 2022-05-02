@@ -30,7 +30,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/uadstickers_osm_checkeduadstickers_osm_checked_1.js"></script>
+        <script src="data/aadm_stickers_edited_1"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -54,7 +54,7 @@
         });
         layer_ESRIWorldTopo_0;
         map.addLayer(layer_ESRIWorldTopo_0);
-        function pop_uadstickers_osm_checkeduadstickers_osm_checked_1(feature, layer) {
+        function pop_aadm_stickers_edited_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Business'] !== null ? autolinker.link(feature.properties['Business'].toLocaleString()) : '') + '</td>\
@@ -105,11 +105,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_uadstickers_osm_checkeduadstickers_osm_checked_1_0(feature) {
+        function style_aadm_stickers_edited_1(feature) {
             switch(String(feature.properties['Sticker shown?'])) {
                 case '-':
                     return {
-                pane: 'pane_uadstickers_osm_checkeduadstickers_osm_checked_1',
+                pane: 'pane_aadm_stickers_edited_1',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -125,7 +125,7 @@
                     break;
                 case 'No':
                     return {
-                pane: 'pane_uadstickers_osm_checkeduadstickers_osm_checked_1',
+                pane: 'pane_aadm_stickers_edited_1',
                 radius: 3.999999999999997,
                 opacity: 1,
                 color: 'rgba(128,17,25,1.0)',
@@ -141,7 +141,7 @@
                     break;
                 case 'Yes':
                     return {
-                pane: 'pane_uadstickers_osm_checkeduadstickers_osm_checked_1',
+                pane: 'pane_aadm_stickers_edited_1',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -153,7 +153,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_uadstickers_osm_checkeduadstickers_osm_checked_1',
+                pane: 'pane_aadm_stickers_edited_1',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -169,10 +169,10 @@
                     break;
             }
         }
-        map.createPane('pane_uadstickers_osm_checkeduadstickers_osm_checked_1');
-        map.getPane('pane_uadstickers_osm_checkeduadstickers_osm_checked_1').style.zIndex = 401;
-        map.getPane('pane_uadstickers_osm_checkeduadstickers_osm_checked_1').style['mix-blend-mode'] = 'normal';
-        var layer_uadstickers_osm_checkeduadstickers_osm_checked_1 = new L.geoJson(json_uadstickers_osm_checkeduadstickers_osm_checked_1, {
+        map.createPane('pane_aadm_stickers_edited_1');
+        map.getPane('pane_aadm_stickers_edited_1').style.zIndex = 401;
+        map.getPane('pane_aadm_stickers_edited_1').style['mix-blend-mode'] = 'normal';
+        var layer_aadm_stickers_edited_1 = new L.geoJson(json_uadstickers_osm_checkeduadstickers_osm_checked_1, {
             attribution: '',
             interactive: true,
             dataVar: 'json_uadstickers_osm_checkeduadstickers_osm_checked_1',
