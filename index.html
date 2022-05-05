@@ -34,13 +34,13 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/aadm_stickers_edited_1.js"></script>
              <script>
-            var highlightlayer:
+            var highlightLayer;
             function highlightFeature(e) {
                 highlightLayer = e.target;
                 
                 if (e.target.feature.geometry.type === 'LineString') {
                     highlightLayer.setStyle({
-                        fillColor: '#ffff00', 
+                        color: '#ffff00', 
                     });
                 } else {
                     highlightLayer.setStyle({
@@ -50,7 +50,7 @@
                  }
             }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:10
+            zoomControl:true, maxZoom:22, minZoom:10
         }).fitBounds([[33.95696099542755,-83.3773814109234],[33.960890095427544,-83.37185173930821]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -64,10 +64,10 @@
             pane: 'pane_ESRIWorldTopo_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 1,
-            maxZoom: 28,
+            minZoom: 10,
+            maxZoom: 22,
             minNativeZoom: 0,
-            maxNativeZoom: 20
+            maxNativeZoom: 19
         });
         layer_ESRIWorldTopo_0;
         map.addLayer(layer_ESRIWorldTopo_0);
@@ -98,7 +98,7 @@
         }
 
         function style_aadm_stickers_edited_1_1_0() {
-                               return {
+            return {
                 pane: 'pane_aadm_stickers_edited_1_1',
                 radius: 4.0,
                 opacity: 1,
