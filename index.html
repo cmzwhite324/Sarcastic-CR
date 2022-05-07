@@ -60,31 +60,13 @@
                         <td colspan="2">' + (feature.properties['Business'] !== null ? autolinker.link(feature.properties['Business'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['include'] !== null ? autolinker.link(feature.properties['include'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Filled out by'] !== null ? autolinker.link(feature.properties['Filled out by'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['Sticker shown?'] !== null ? autolinker.link(feature.properties['Sticker shown?'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['addr.housenumber'] !== null ? autolinker.link(feature.properties['addr.housenumber'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['addr.street'] !== null ? autolinker.link(feature.properties['addr.street'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['type'] !== null ? autolinker.link(feature.properties['type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['aadm'] !== null ? autolinker.link(feature.properties['aadm'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['notes_1'] !== null ? autolinker.link(feature.properties['notes_1'].toLocaleString()) : '') + '</td>\
@@ -105,10 +87,12 @@
                         <td colspan="2">' + (feature.properties['Business_Type'] !== null ? autolinker.link(feature.properties['Business_Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
+             <td colspan="2"><strong>Business Photo</strong><br />' + (feature.properties['Photo'] !== null ? '<img src="'+feature.properties.Photo+'' + String(feature.properties['Photo']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                    </tr>\
+                </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
-        function style_aadm_stickers_edited_1_1_0(feature) {
+                  function style_aadm_stickers_edited_1_1_0(feature) {
             switch(String(feature.properties['Sticker shown?'])) {
                 case 'No':
                     return {
