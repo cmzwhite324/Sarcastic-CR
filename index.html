@@ -60,13 +60,13 @@
                         <td colspan="2"><strong>Business: </strong><br />' + (feature.properties['Business'] !== null ? autolinker.link(feature.properties['Business'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">Sticker Shown:' + (feature.properties['Sticker shown?'] !== null ? autolinker.link(feature.properties['Sticker shown?'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Sticker Shown: </strong><br />' + (feature.properties['Sticker shown?'] !== null ? autolinker.link(feature.properties['Sticker shown?'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">Address:' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Address: </strong><br />' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">Business Type:' + (feature.properties['Business_Type'] !== null ? autolinker.link(feature.properties['Business_Type'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Business Type: </strong><br />' + (feature.properties['Business_Type'] !== null ? autolinker.link(feature.properties['Business_Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
