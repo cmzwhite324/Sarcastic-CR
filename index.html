@@ -32,6 +32,21 @@
         <script src="js/labels.js"></script>
         <script src="data/aadm_stickers_edited_1_1.js"></script>
         <script>
+          var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[33.95542971790807,-83.37851471928671],[33.963153961365954,-83.36973403817056]]);
@@ -55,6 +70,14 @@
         layer_ESRIWorldTopo_0;
         map.addLayer(layer_ESRIWorldTopo_0);
         function pop_aadm_stickers_edited_1_1(feature, layer) {
+             layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Business'] !== null ? autolinker.link(feature.properties['Business'].toLocaleString()) : '') + '</td>\
