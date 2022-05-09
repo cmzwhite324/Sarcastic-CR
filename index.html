@@ -32,7 +32,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/AADM_Final_1.js"></script>
+        <script src="data/UAD_sticker_list_THE_ONE_1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -58,20 +58,20 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_OSMStandard_0');
-        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
-        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            pane: 'pane_OSMStandard_0',
+        map.createPane('pane_ESRIWorldTopo_0_0');
+        map.getPane('pane_ESRIWorldTopo_0_0').style.zIndex = 400;
+        var layer_ESRIWorldTopo_0 = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_ESRIWorldTopo_0',
             opacity: 1.0,
-            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            attribution: '',
             minZoom: 10,
             maxZoom: 22,
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
-        layer_OSMStandard_0;
-        map.addLayer(layer_OSMStandard_0);
-        function pop_AADM_Final_1(feature, layer) {
+        layer_ESRIWorldTopo_0;
+        map.addLayer(layer_ESRIWorldTopo_0);
+        function pop_UAD_sticker_list_THE_ONE_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -103,9 +103,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AADM_Final_1_0() {
+        function style_UAD_sticker_list_THE_ONE_1_0() {
             return {
-                pane: 'pane_AADM_Final_1',
+                pane: 'pane_UAD_sticker_list_THE_ONE_1',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -119,26 +119,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_AADM_Final_1');
-        map.getPane('pane_AADM_Final_1').style.zIndex = 401;
-        map.getPane('pane_AADM_Final_1').style['mix-blend-mode'] = 'normal';
-        var layer_AADM_Final_1 = new L.geoJson(json_AADM_Final_1, {
+        map.createPane('pane_UAD_sticker_list_THE_ONE_1');
+        map.getPane('pane_UAD_sticker_list_THE_ONE_1').style.zIndex = 401;
+        map.getPane('pane_UAD_sticker_list_THE_ONE_1').style['mix-blend-mode'] = 'normal';
+        var layer_UAD_sticker_list_THE_ONE1 = new L.geoJson(json_UAD_sticker_list_THE_ONE_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AADM_Final_1',
-            layerName: 'layer_AADM_Final_1',
-            pane: 'pane_AADM_Final_1',
-            onEachFeature: pop_AADM_Final_1,
+            dataVar: 'json_UAD_sticker_list_THE_ONE_1',
+            layerName: 'layer_UAD_sticker_list_THE_ONE_1',
+            pane: 'pane_UAD_sticker_list_THE_ONE_1',
+            onEachFeature: pop_UAD_sticker_list_THE_ONE_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_AADM_Final_1_0(feature));
+                return L.circleMarker(latlng, style_UAD_sticker_list_THE_ONE_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_AADM_Final_1);
-        map.addLayer(layer_AADM_Final_1);
+        bounds_group.addLayer(layer_UAD_sticker_list_THE_ONE_1);
+        map.addLayer(layer_UAD_sticker_list_THE_ONE_1);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
