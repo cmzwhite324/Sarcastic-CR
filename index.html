@@ -8,7 +8,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -31,7 +30,6 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/UAD_sticker_list_THE_ONE_1.js"></script>
         <script>
         var highlightLayer;
@@ -102,27 +100,38 @@
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
-        function style_UAD_sticker_list_THE_ONE_1_0() {
-            return {
+              function style_UAD_sticker_list_THE_ONE_1_0(feature) {
+            switch(String(feature.properties['Sticker shown?'])) {
+                case 'No':
+                    return {
                 pane: 'pane_UAD_sticker_list_THE_ONE_1',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/city_medium.svg',
+            iconSize: [18, 18]
+        }),
                 interactive: true,
+            }
+                    break;
+                case 'Yes':
+                    return {
+                pane: 'pane_UAD_sticker_list_THE_ONE_1',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/AADMSVG.svg',
+            iconSize: [30, 30]
+        }),
+                interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_UAD_sticker_list_THE_ONE_1');
         map.getPane('pane_UAD_sticker_list_THE_ONE_1').style.zIndex = 401;
         map.getPane('pane_UAD_sticker_list_THE_ONE_1').style['mix-blend-mode'] = 'normal';
-        var layer_UAD_sticker_list_THE_ONE1 = new L.geoJson(json_UAD_sticker_list_THE_ONE_1, {
+        var layer_UAD_sticker_list_THE_ONE_1 = new L.geoJson(json_UAD_sticker_list_THE_ONE_1, {
             attribution: '',
             interactive: true,
             dataVar: 'json_UAD_sticker_list_THE_ONE_1',
@@ -134,22 +143,14 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_UAD_sticker_list_THE_ONE_1_0(feature));
+                return L.marker(latlng, style_UAD_sticker_list_THE_ONE_1_0(feature));
             },
         });
         bounds_group.addLayer(layer_UAD_sticker_list_THE_ONE_1);
         map.addLayer(layer_UAD_sticker_list_THE_ONE_1);
-        var osmGeocoder = new L.Control.Geocoder({
-            collapsed: true,
-            position: 'topleft',
-            text: 'Search',
-            title: 'Testing'
-        }).addTo(map);
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .className += ' fa fa-search';
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .title += 'Search for a place';
         setBounds();
         </script>
     </body>
 </html>
+
+      
