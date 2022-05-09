@@ -57,7 +57,7 @@
         function pop_aadm_stickers_edited_1_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">Business:' + (feature.properties['Business'] !== null ? autolinker.link(feature.properties['Business'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Business: </strong><br />' + (feature.properties['Business'] !== null ? autolinker.link(feature.properties['Business'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">Sticker Shown:' + (feature.properties['Sticker shown?'] !== null ? autolinker.link(feature.properties['Sticker shown?'].toLocaleString()) : '') + '</td>\
