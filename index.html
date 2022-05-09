@@ -109,8 +109,7 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['Business_Type'] !== null ? autolinker.link(feature.properties['Business_Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                </table>';
-             <td colspan="2"><strong>Business Photo</strong><br />' + (feature.properties['Photo'] !== null ? '<img src="'+feature.properties.Photo+'' + String(feature.properties['Photo']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                           <td colspan="2"><strong>Business Photo</strong><br />' + (feature.properties['Photo'] !== null ? '<img src="'+feature.properties.Photo+'' + String(feature.properties['Photo']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
